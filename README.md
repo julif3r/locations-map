@@ -2,7 +2,7 @@
 
 
 ## TO RUN THE PROJECT
-[ YOU MUST HAVE ]
+- YOU MUST HAVE
 * Installed mysql appache server
 * node -version v14.15.1
 
