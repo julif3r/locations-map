@@ -18,7 +18,7 @@ Create database with name 'locations' and import `locations.sql`
 ### RUN SERVER NodeJS
 * Run mysql server
 * From the /node directory install node modules with command `npm install`
-* After Node_modules are installed, execute command to run the server `npm start index.js`, please make sure that no other application is working on port 5200
+* After Node_modules are installed, execute command to run the server `npm start index.js`
 
 ### RUN FRONT_END Angular
 * From the /angular directory install node modules with command `npm install`
