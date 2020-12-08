@@ -27,5 +27,20 @@ Create database with name 'locations' and import `locations.sql`
 
 ### APPLICATION SCREENSHOTS
 
-1. List of locations on homepage
+1. List of locations on homepage 
+
+![alt Homepage](https://github.com/julif3r/locations-map/blob/main/screenshots/list-of-locations.jpg)
+
+2. Create location page 
+
+![alt Create](https://github.com/julif3r/locations-map/blob/main/screenshots/create-location.jpg)
+
+3. Update location page 
+
+![alt Homepage](https://github.com/julif3r/locations-map/blob/main/screenshots/update-location.jpg)
+
+4. Single location
+
+![alt Single](https://github.com/julif3r/locations-map/blob/main/screenshots/single-location.jpg)
+
  
