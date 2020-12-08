@@ -1,7 +1,8 @@
 # locations-map
 
 
-## TO RUN THIS PROJECT YOU MUST HAVE
+## TO RUN THE PROJECT
+[ YOU MUST HAVE ]
 * Installed mysql appache server
 * node -version v14.15.1
 
