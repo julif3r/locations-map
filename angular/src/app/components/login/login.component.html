@@ -1,30 +1,22 @@
 <div class="form-login">
 
-    <form *ngIf="loginForm" [formGroup]="loginForm">
+    <form class="form-create" *ngIf="loginForm" [formGroup]="loginForm">
         <label class="flex" for="name">
             Name:
             <input type="text" formControlName="usernameControl"  maxlength="20" />
     
-            <!-- <div class="input-error" *ngIf="usernameControl.errors && usernameControl.touched">
-                <div *ngIf="usernameControl.errors.required">
-                    usernameControl is required.
-                </div>
-            </div> -->
         </label>
 
         <label class="flex" for="name">
             Password:
             <input type="password" formControlName="passwordControl"  maxlength="50" />
 
-<!-- 
-            <div class="input-error" *ngIf="passwordControl.errors && passwordControl.touched">
-                <div *ngIf="passwordControl.errors.required">
-                    passwordControl is required.
-                </div>
-            </div> -->
         </label>
         <div class="flex">
             <button (click)="submit(user)" [disabled]="!loginForm.valid">Login</button>
+            <div *ngIf="errorMessage" class="login-error">
+                {{ errorMessage }}
+            </div>
         </div>
     </form>
 </div>

@@ -6,11 +6,12 @@ import { ListLocationComponent } from './components/list-location/list-location.
 import { LoginComponent } from './components/login/login.component';
 import { UpdateLocationComponent } from './components/update-location/update-location.component';
 import { ViewLocationComponent } from './components/view-location/view-location.component';
+import { NoUserGuard } from './guards/noUser.guard';
 import { UserGuard } from './guards/user.guard';
 
 const routes: Routes = [
   {
-    path: 'login', component: LoginComponent, 
+    path: 'login', component: LoginComponent, canActivate: [ NoUserGuard ]
   },
   {
     path: 'locations', component: ListLocationComponent, canActivate: [ UserGuard ]

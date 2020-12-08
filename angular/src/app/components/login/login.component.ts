@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { User } from 'src/app/models/user';
 import { AuthenticationService } from 'src/app/services/authentication/authentication.service';
 
@@ -15,6 +16,8 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   username: FormControl;
   password: FormControl;
+  errorMessage: string;
+  subscription: Subscription;
 
   constructor(private authService: AuthenticationService, private router: Router) { }
 
@@ -27,6 +30,14 @@ export class LoginComponent implements OnInit {
       usernameControl: this.username,
       passwordControl: this.password
     });
+
+    this.subscription = this.loginForm.valueChanges.subscribe(() => {
+      this.errorMessage = '';
+    });
+  }
+
+  ngOnDestroy(): void{
+    this.subscription.unsubscribe();
   }
 
   login(user: User){
@@ -41,8 +52,12 @@ export class LoginComponent implements OnInit {
       }
       const result = await this.authService.login(user);
       console.log(result);
-      if(result){
+      if(result.user){
         this.router.navigate(['/locations']);
+      }
+
+      if(result.message){
+        this.errorMessage = result.message;
       }
     }
   }

@@ -23,19 +23,18 @@ export class AuthenticationService {
   public async login(user: User): Promise<any> {
     const result = await this.loginPost(user).toPromise();
 
-    if ( result ) {
+    if ( result.user ) {
       console.log(result);
       localStorage.setItem('currentUser', JSON.stringify(result));
+      const body = document.getElementById('body') as HTMLElement;
+      body.classList.add('logged-in');
     }
     return result;
   }
 
-  public isUserLoggedIn(user: User){
-    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    if(currentUser.token){
-      console.log(currentUser);
-      return true;
-    }
-    return false;
+  public logout(){
+    localStorage.removeItem('currentUser');
+    const body = document.getElementById('body') as HTMLElement;
+    body.classList.remove('logged-in');
   }
 }

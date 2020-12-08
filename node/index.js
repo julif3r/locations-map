@@ -23,19 +23,19 @@ app.get('/api', (req, res) => {
 
 app.post('/api/login', (req, res) => {
      const user = req.body;
-     console.log(user);
-     // const user = {
-     //      id: 1,
-     //      username: 'admin',
-     //      email: 'admin@admin.com'
-     // };
-
-     jwt.sign(({ user: user }), 'secretkey', (error, token) => {
-          res.json({
-               user: user,
-               token: token
+     if(user.username == 'admin' && user.password == 'admin'){
+          jwt.sign(({ user: user }), 'secretkey', (error, token) => {
+               res.json({
+                    user: user,
+                    token: token
+               });
           });
-     });
+     }else{
+          res.json({
+               message: 'Login attempt failed, username or password is invalid'
+          })
+     }
+     
 });
 
 //defining locations routes
