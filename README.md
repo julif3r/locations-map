@@ -5,7 +5,7 @@
 #### YOU MUST HAVE
 * Installed mysql apache server
 * node -version v14.15.1
-Create database with name 'locations' and import `locations.sql`
+* Create database with name 'locations' and import `locations.sql`
 * On directory `/node/connections.js` you can change mysql credentials
 ```
    host: 'localhost',
