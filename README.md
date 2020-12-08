@@ -5,12 +5,12 @@
 #### YOU MUST HAVE
 * Installed mysql appache server
 * node -version v14.15.1
-Create database with name 'locations'
-* On directory /node/connections.js you can change mysql credentials
-    `host: 'localhost',`
-    `user: 'root',`
-    `password: 'root',`
-    `database: 'locations'`
+Create database with name 'locations' and import `locations.sql`
+* On directory `/node/connections.js` you can change mysql credentials
+     ```host: 'localhost',
+        user: 'root',
+        password: 'root',
+        database: 'locations'```
 
 
 ### RUN SERVER NodeJS
