@@ -23,3 +23,9 @@ Create database with name 'locations' and import `locations.sql`
 ### RUN FRONT_END Angular
 * From the /angular directory install node modules with command `npm install`
 * After Node_modules are installed, execute command to run and open the project`ng serve --open`,
+
+
+### APPLICATION SCREENSHOTS
+
+1. List of locations on homepage
+ 
