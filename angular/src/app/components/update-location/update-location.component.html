@@ -1,7 +1,7 @@
 <form *ngIf="form" class="form-create" [formGroup]="form">
     <label class="flex" for="name">
         Name:
-        <input type="text" formControlName="nameControl" />
+        <input type="text" formControlName="nameControl" maxlength="20" />
 
         <div class="input-error" *ngIf="name.errors && name.touched">
             <div *ngIf="name.errors.required">
@@ -12,7 +12,7 @@
 
     <label class="flex" for="name">
         Address:
-        <input type="text" formControlName="addressControl" />
+        <input type="text" formControlName="addressControl" maxlength="50" />
 
 
         <div class="input-error" *ngIf="address.errors && address.touched">
