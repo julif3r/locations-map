@@ -3,24 +3,29 @@ import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { CreateLocationComponent } from './components/create-location/create-location.component';
 import { ListLocationComponent } from './components/list-location/list-location.component';
+import { LoginComponent } from './components/login/login.component';
 import { UpdateLocationComponent } from './components/update-location/update-location.component';
 import { ViewLocationComponent } from './components/view-location/view-location.component';
+import { UserGuard } from './guards/user.guard';
 
 const routes: Routes = [
   {
-    path: 'locations', component: ListLocationComponent,
+    path: 'login', component: LoginComponent, 
   },
   {
-    path: 'create-location', component: CreateLocationComponent,
+    path: 'locations', component: ListLocationComponent, canActivate: [ UserGuard ]
   },
   {
-    path: 'location/:id', component: ViewLocationComponent,
+    path: 'create-location', component: CreateLocationComponent, canActivate: [ UserGuard ]
   },
   {
-    path: 'update-location/:id', component: UpdateLocationComponent,
+    path: 'location/:id', component: ViewLocationComponent, canActivate: [ UserGuard ]
   },
-  { path: '', redirectTo: 'locations', pathMatch: 'full' },
-  { path: '**', redirectTo: 'locations' },
+  {
+    path: 'update-location/:id', component: UpdateLocationComponent, canActivate: [ UserGuard ]
+  },
+  { path: '', redirectTo: 'login' , pathMatch: 'full' },
+  { path: '**', redirectTo: 'login' },
 
 ];
 

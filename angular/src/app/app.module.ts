@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -13,6 +13,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { UpdateLocationComponent } from './components/update-location/update-location.component';
 import { AgmCoreModule } from '@agm/core';
 import { CitiesService } from './services/cities/cities.service';
+import { LoginComponent } from './components/login/login.component';
+import { TokenInterceptor } from './interceptor/token.interceptor';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { CitiesService } from './services/cities/cities.service';
     CreateLocationComponent,
     ListLocationComponent,
     ViewLocationComponent,
-    UpdateLocationComponent
+    UpdateLocationComponent,
+    LoginComponent
   ],
   imports: [
     HttpClientModule,
@@ -34,7 +37,13 @@ import { CitiesService } from './services/cities/cities.service';
   providers: [
     LocationsService,
     HandleErrorService,
-    CitiesService
+    CitiesService,
+    HttpClient,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })

@@ -1,14 +1,23 @@
 import { mySqlConnection } from './../connection.js';
+import jwt from 'jsonwebtoken';
+
 let cities = [];
 
 export const getCities = (req, res) => {
-    mySqlConnection.query('SELECT * from cities', (error, rows, fields) => {
+
+    jwt.verify(req.token, 'secretkey', (error, data) => {
         if(error){
-            console.log(error);
-            res.send(error);
+            res.sendStatus(403);
         }else{
-            cities = rows;
-            res.send(cities);
+            mySqlConnection.query('SELECT * from cities', (error, rows, fields) => {
+                if(error){
+                    console.log(error);
+                    res.send(error);
+                }else{
+                    cities = rows;
+                    res.send(cities);
+                }
+            });
         }
     });
 }

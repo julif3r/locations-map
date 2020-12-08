@@ -14,7 +14,6 @@ Create database with name 'locations' and import `locations.sql`
    database: 'locations'
 ```
 
-
 ### RUN SERVER NodeJS
 * Run mysql server
 * From the /node directory install node modules with command `npm install`

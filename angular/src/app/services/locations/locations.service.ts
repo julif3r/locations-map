@@ -10,7 +10,7 @@ import { Location } from './../../models/location';
 })
 export class LocationsService {
 
-  private serverUrl = 'http://localhost:5000/locations';
+  private serverUrl = 'http://localhost:5000/api/locations';
 
   constructor(private http: HttpClient, private handleErrorService: HandleErrorService) { }
 

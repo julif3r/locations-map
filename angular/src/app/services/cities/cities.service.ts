@@ -10,7 +10,7 @@ import { HandleErrorService } from '../handleError/handle-error.service';
 })
 export class CitiesService {
 
-  private serverUrl = 'http://localhost:5000/cities';
+  private serverUrl = 'http://localhost:5000/api/cities';
 
   constructor(private http: HttpClient, private handleErrorService: HandleErrorService) { }
 
