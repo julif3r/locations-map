@@ -1,0 +1,14 @@
+<div class="view-location" *ngIf="location">
+        <div class="flex">
+            <h1 class="location-title">{{ location.name }}</h1>
+            <button [routerLink]="['/update-location/'+location.id]" >Edit</button>
+        </div>
+        <div class="location-info">
+            {{ location.address }}, 
+            {{ location.city }}
+        </div>
+
+    <agm-map [latitude]="location.latitude" [longitude]="location.longitude">
+        <agm-marker [latitude]="location.latitude" [longitude]="location.longitude"></agm-marker>
+      </agm-map>
+</div>

@@ -1,0 +1,81 @@
+<form *ngIf="form" class="form-create" [formGroup]="form">
+    <label class="flex" for="name">
+        Name:
+        <input type="text" formControlName="nameControl" />
+
+        <div class="input-error" *ngIf="name.errors && name.touched">
+            <div *ngIf="name.errors.required">
+                Name is required.
+            </div>
+        </div>
+    </label>
+
+    <label class="flex" for="name">
+        Address:
+        <input type="text" formControlName="addressControl" />
+
+
+        <div class="input-error" *ngIf="address.errors && address.touched">
+            <div *ngIf="address.errors.required">
+                Address is required.
+            </div>
+        </div>
+    </label>
+
+    <label class="flex" for="name">
+        City:
+
+        <select formControlName="cityControl">
+            <option *ngFor="let city of cities$ | async" [value]="city.name">{{ city.name }}</option>
+        </select>
+
+        <div class="input-error" *ngIf="city.errors && city.touched">
+            <div *ngIf="city.errors.required">
+                City is required.
+            </div>
+
+            <div *ngIf="city.errors.pattern">
+                Numbers only.
+            </div>
+        </div>
+    </label>
+
+    <label class="flex" for="name">
+        Latitude:
+        <input type="number" formControlName="latitudeControl" />
+
+        <div class="input-error" *ngIf="latitude.errors && latitude.touched">
+            <div *ngIf="latitude.errors.required">
+                Latitude is required.
+            </div>
+
+            <div *ngIf="latitude.errors.pattern">
+                Numbers only.
+            </div>
+        </div>
+    </label>
+
+    <label class="flex" for="name">
+        Longitude:
+        <input type="number" formControlName="longitudeControl" />
+
+        <div class="input-error" *ngIf="longitude.errors && longitude.touched">
+
+            <div *ngIf="longitude.errors.pattern">
+                Numbers only.
+            </div>
+            
+            <div *ngIf="longitude.errors.required">
+                Latitude is required.
+            </div>
+
+            
+        </div>
+    </label>
+
+    <div class="flex">
+        <button [routerLink]="['/locations']">Cancel</button>
+        <button (click)="submit()" [disabled]="!form.valid || !form.dirty">Submit</button>
+    </div>
+
+</form>

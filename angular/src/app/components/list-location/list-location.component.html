@@ -1,0 +1,21 @@
+<div class="table-content">   
+    <h1 class="title flex">Locations <button [routerLink]="['/create-location']">Create Location</button> </h1>
+    <table style="width:100%">
+        <tr>
+        <th>Name</th>
+        <th>Address</th>
+        <th>City</th>
+        <th>Latitude - Longitude</th>
+        <th>Actions</th>
+        </tr>
+        <tr *ngFor="let location of locations$ | async" >
+            <td class="td-link" [routerLink]="['/location/'+ location.id]" >{{ location.name }}</td>
+            <td>{{ location.address }}</td>
+            <td>{{ location.city }}</td>
+            <td>{{ location.latitude }}, {{ location.longitude }}</td>
+            <td>
+                <span class="action-link" (click)="deleteItem(location.id)">Delete</span> &nbsp;
+            </td>
+        </tr>
+    </table>
+</div>
