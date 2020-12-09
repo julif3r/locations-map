@@ -24,21 +24,31 @@
 * After Node_modules are installed, execute command to run and open the project`ng serve --open`,
 
 
+#### Login user
+```
+   username: admin
+   password: admin
+```
+
 ### APPLICATION SCREENSHOTS
 
-1. List of locations on homepage 
+1. Login page
+
+![alt Homepage](https://github.com/julif3r/locations-map/blob/main/screenshots/login.jpg)
+
+2. List of locations on homepage 
 
 ![alt Homepage](https://github.com/julif3r/locations-map/blob/main/screenshots/list-of-locations.jpg)
 
-2. Create location page 
+3. Create location page 
 
 ![alt Create](https://github.com/julif3r/locations-map/blob/main/screenshots/create-location.jpg)
 
-3. Update location page 
+4. Update location page 
 
 ![alt Homepage](https://github.com/julif3r/locations-map/blob/main/screenshots/update-location.jpg)
 
-4. Single location
+5. Single location
 
 ![alt Single](https://github.com/julif3r/locations-map/blob/main/screenshots/single-location.jpg)
 
